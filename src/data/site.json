@@ -1,0 +1,96 @@
+{
+	"header": {
+		"brand": {
+			"label": "HOME",
+			"href": "/"
+		},
+		"nav": [
+			{
+				"label": "WORK",
+				"href": "https://saivamshi.aethoscompany.in/projects"
+			},
+			{
+				"label": "NOTES",
+				"href": "https://saivamshi.aethoscompany.in/notes"
+			},
+			{
+				"label": "FAV",
+				"href": "https://saivamshi.aethoscompany.in/favorites"
+			},
+			{
+				"label": "CV",
+				"href": "https://saivamshi.aethoscompany.in/cv"
+			}
+		]
+	},
+	"hero": {
+		"name": "Krisna Wijaya",
+		"avatar": {
+			"src": "/avatar.png",
+			"alt": "Krisna Wijaya"
+		},
+		"paragraphs": [
+			[
+				{
+					"text": "Full-stack engineer with 6+ years of experience across freelance work, contract SaaS, and founding my own."
+				}
+			],
+			[
+				{
+					"text": "I ship Next.js products end to end, from the first sketch to the thing running in production: UI, APIs, AI integrations, and the systems underneath them."
+				}
+			],
+			[
+				{ "text": "Currently building " },
+				{ "text": "Aethos Labs", "href": "https://www.aethoscompany.in/" },
+				{ "text": ", " },
+				{ "text": "Cirro", "href": "https://cirrowtr.in" },
+				{ "text": ", and other cool things." }
+			],
+			[
+				{
+					"text": "On the side I build small tools for the parts of my own workflow that annoy me. Those live on the "
+				},
+				{
+					"text": "projects",
+					"href": "https://saivamshi.aethoscompany.in/projects"
+				},
+				{ "text": " page." }
+			],
+			[
+				{
+					"text": "Based in Hyderabad, India, working remote with teams across time zones. When I'm not shipping, I'm usually writing about what broke and what I'd do differently."
+				}
+			],
+			[
+				{ "text": "Here is my " },
+				{ "text": "CV", "href": "https://saivamshi.aethoscompany.in/cv" },
+				{ "text": "." }
+			]
+		]
+	},
+	"footer": {
+		"sprites": [
+			{ "emoji": "🌵", "label": "hyderabad heat" },
+			{ "emoji": "🌸", "label": "touch grass" },
+			{ "emoji": "👾", "label": "ship it" },
+			{ "emoji": "🪴", "label": "slow growth" },
+			{ "emoji": "✳️", "label": "hand-built" }
+		],
+		"social": [
+			{ "label": "X", "href": "https://x.com/urstruelysv" },
+			{
+				"label": "Instagram",
+				"href": "https://www.instagram.com/urstruelysv/"
+			},
+			{ "label": "GitHub", "href": "https://github.com/urstruelysv" },
+			{
+				"label": "LinkedIn",
+				"href": "https://www.linkedin.com/in/sai-vamshi-375997194"
+			},
+			{ "label": "Email", "href": "mailto:krisna.w2010@gmail.com" }
+		],
+		"updated": "Last updated October 2026",
+		"copyright": "© Krisna Wijaya."
+	}
+}

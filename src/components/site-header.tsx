@@ -1,22 +1,18 @@
+import site from "../data/site.json" with { type: "json" };
 import { HoverLink } from "./dotted-link";
 
-const NAV = [
-	{ href: "https://saivamshi.aethoscompany.in/projects", label: "WORK" },
-	{ href: "https://saivamshi.aethoscompany.in/notes", label: "NOTES" },
-	{ href: "https://saivamshi.aethoscompany.in/favorites", label: "FAV" },
-	{ href: "https://saivamshi.aethoscompany.in/cv", label: "CV" },
-] as const;
-
 export function SiteHeader() {
+	const { brand, nav } = site.header;
+
 	return (
 		<header className="site-header">
 			<div className="frame">
 				<nav className="site-nav" aria-label="Primary">
-					<a className="brand-mark" href="/">
-						SV
+					<a className="brand-mark" href={brand.href}>
+						{brand.label}
 					</a>
 					<div className="nav-links">
-						{NAV.map((item) => (
+						{nav.map((item) => (
 							<HoverLink key={item.label} className="nav-link" href={item.href}>
 								{item.label}
 							</HoverLink>
