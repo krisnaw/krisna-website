@@ -45,6 +45,219 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.page {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 4rem 1rem;
+}
+
+.note-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.note-row {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1.5rem;
+	padding: 0.75rem 0;
+	border-bottom: 1px solid color-mix(in oklab, #111 8%, #fff);
+	color: #111;
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: -0.00563rem;
+	line-height: 1.25rem;
+	text-decoration: none;
+}
+
+.note-row:hover {
+	color: var(--brand);
+}
+
+.note-row time {
+	flex-shrink: 0;
+	color: var(--neutral-400);
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	font-weight: 460;
+	letter-spacing: 0;
+}
+
+.note-status {
+	margin: 0;
+	color: var(--neutral-500);
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.5rem;
+}
+
+.note-article {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.note-back {
+	color: var(--neutral-400);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	letter-spacing: 0.025em;
+	text-decoration: none;
+}
+
+.note-back:hover {
+	color: var(--brand);
+}
+
+.note-article header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.note-article h1 {
+	margin: 0;
+	color: #111;
+	font-size: 1.875rem;
+	font-weight: 700;
+	line-height: 2.25rem;
+}
+
+.note-article time {
+	color: var(--neutral-400);
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	font-weight: 460;
+}
+
+.note-body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	color: #111;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.5rem;
+	letter-spacing: -0.025em;
+}
+
+.note-body h2,
+.note-body h3,
+.note-body h4,
+.note-body p,
+.note-body blockquote,
+.note-body figure,
+.note-body pre {
+	margin: 0;
+}
+
+.note-body h2,
+.note-body h3,
+.note-body h4 {
+	margin-top: 0.75rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.note-body h2 {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+
+.note-body h3 {
+	font-size: 1.0625rem;
+	line-height: 1.5rem;
+}
+
+.note-body h4 {
+	font-size: 0.875rem;
+	line-height: 1.5rem;
+}
+
+.note-body a {
+	color: #111;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 3px;
+}
+
+.note-body a:hover {
+	color: var(--brand);
+}
+
+.note-body ul,
+.note-body ol {
+	margin: 0;
+	padding-left: 1.25rem;
+}
+
+.note-body li {
+	margin: 0.25rem 0;
+}
+
+.note-body blockquote {
+	border-left: 2px solid var(--neutral-300);
+	padding-left: 1rem;
+	color: var(--copy-color);
+}
+
+.note-body code {
+	font-family: var(--font-mono);
+	font-size: 0.8125rem;
+}
+
+.note-body pre {
+	overflow-x: auto;
+	border-radius: 0.5rem;
+	background: var(--secondary);
+	padding: 0.875rem 1rem;
+	white-space: pre-wrap;
+}
+
+.note-body img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.note-body figcaption {
+	margin-top: 0.5rem;
+	color: var(--neutral-500);
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	letter-spacing: 0;
+}
+
+.page-intro {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.page-intro h1 {
+	margin: 0;
+	color: #111;
+	font-size: 1.875rem;
+	font-weight: 700;
+	line-height: 2.25rem;
+}
+
+.page-intro p {
+	margin: 0;
+	color: #111;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.5rem;
+	letter-spacing: -0.025em;
+	text-align: justify;
+	text-wrap: pretty;
+}
+
 .hero {
 	max-width: 42rem;
 	margin: 0 auto;

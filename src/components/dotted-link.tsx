@@ -38,13 +38,13 @@ export function DottedLink({
 }) {
 	const rawId = useId();
 	const id = `dots-${rawId.replace(/:/g, "")}`;
+	const external = href.startsWith("http");
 
 	return (
 		<a
 			className="dotted-link"
 			href={href}
-			target="_blank"
-			rel="noopener noreferrer"
+			{...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 		>
 			<span className="dotted-link-text">
 				{children}

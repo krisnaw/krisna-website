@@ -7,11 +7,11 @@
 		"nav": [
 			{
 				"label": "WORK",
-				"href": "https://saivamshi.aethoscompany.in/projects"
+				"href": "/projects"
 			},
 			{
 				"label": "NOTES",
-				"href": "https://saivamshi.aethoscompany.in/notes"
+				"href": "/notes"
 			},
 			{
 				"label": "FAV",
@@ -53,7 +53,7 @@
 				},
 				{
 					"text": "projects",
-					"href": "https://saivamshi.aethoscompany.in/projects"
+					"href": "/projects"
 				},
 				{ "text": " page." }
 			],
@@ -68,6 +68,14 @@
 				{ "text": "." }
 			]
 		]
+	},
+	"projects": {
+		"title": "Work",
+		"description": "Contract engineering for SaaS teams, end-to-end builds for businesses, and the products I make for myself. Everything here shipped and runs in production."
+	},
+	"notes": {
+		"title": "Notes",
+		"description": "Things I figured out while building — the tradeoffs behind a design, the checklist I wish I'd had, the lesson that only showed up after shipping."
 	},
 	"footer": {
 		"sprites": [
