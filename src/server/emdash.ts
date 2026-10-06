@@ -13,9 +13,13 @@ export async function emdashGet(path: string): Promise<EmdashResponse> {
 		return { status: 0, body: null };
 	}
 
-	const response = await fetch(new URL(path, BLOG_ORIGIN), {
+	const request = new Request(new URL(path, BLOG_ORIGIN), {
 		headers: { Authorization: `Bearer ${key}` },
 	});
+	// A public fetch to another workers.dev host is rejected with error 1042.
+	const response = env.BLOG
+		? await env.BLOG.fetch(request)
+		: await fetch(request);
 
 	if (!response.ok) {
 		return { status: response.status, body: null };

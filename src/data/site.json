@@ -71,7 +71,124 @@
 	},
 	"projects": {
 		"title": "Work",
-		"description": "Contract engineering for SaaS teams, end-to-end builds for businesses, and the products I make for myself. Everything here shipped and runs in production."
+		"description": "Contract engineering for SaaS teams, end-to-end builds for businesses, and the products I make for myself. Everything here shipped and runs in production.",
+		"items": [
+			{
+				"slug": "cirro",
+				"name": "Cirro",
+				"year": "2026",
+				"eyebrow": "Case study",
+				"title": "Cirro: a site for water that feels as considered as the product",
+				"timeline": [
+					{ "when": "March 2026", "phase": "Research" },
+					{ "when": "April 2026", "phase": "Design" },
+					{ "when": "May 2026", "phase": "Build" },
+					{ "when": "June 2026", "phase": "Shipped" }
+				],
+				"role": ["Full-stack engineer", "Design and build"],
+				"intro": [
+					"Cirro sells packaged drinking water in India. The product already had a point of view: a 7-step purification process, sizes from 250ml to 2L, and certifications people can check. The site did not.",
+					"This is how I designed and shipped the marketing site so a first visit could answer one question: what makes this water different, and where do I get it?"
+				],
+				"site": {
+					"label": "cirrowtr.in",
+					"href": "https://www.cirrowtr.in"
+				},
+				"blocks": [
+					{
+						"kind": "figure",
+						"label": "Cirro",
+						"caption": "The shipped homepage, from the hero through sizes and proof"
+					},
+					{
+						"kind": "section",
+						"title": "The challenge",
+						"paragraphs": [
+							"People landing on a water brand do not need a mood. They need to know it is safe, what size to buy, and whether the company is real. Those facts existed. They were just scattered across a story that started with adjectives.",
+							"The build had to make the product legible before it asked anyone to become a dealer."
+						],
+						"quote": "Tell me what makes this water different before you ask me to buy it."
+					},
+					{
+						"kind": "points",
+						"title": "Discovery",
+						"intro": "I kept the first pass to four questions, so the page would have a job instead of a pile of sections.",
+						"items": [
+							{
+								"title": "What earns trust first?",
+								"body": "Certifications and the purification process, named in plain language, ahead of the brand story."
+							},
+							{
+								"title": "What is the product, exactly?",
+								"body": "Sizes as a set — 250ml, 500ml, 1L, and 2L — not a catalog hiding in a menu."
+							},
+							{
+								"title": "Who is the page for?",
+								"body": "Someone choosing drinking water, and a dealer who needs a way to start a conversation."
+							},
+							{
+								"title": "What can wait?",
+								"body": "The give-back story. It belongs after the product is understood, not instead of it."
+							}
+						]
+					},
+					{
+						"kind": "section",
+						"title": "Designing the page",
+						"paragraphs": [
+							"One page, one argument. The hero states the product. Proof sits next: the purification steps, the certifications, the sizes. The story and the dealer path come after someone already knows what they are looking at.",
+							"I built it as a normal site, not a deck. The type stays quiet, the sections are short, and every block has to survive on a phone in one hand."
+						]
+					},
+					{
+						"kind": "figure",
+						"label": "Sizes",
+						"caption": "Sizes shown as a set, so choosing one does not take a second page"
+					},
+					{
+						"kind": "stats",
+						"title": "What shipped",
+						"items": [
+							{
+								"value": "1 page",
+								"body": "Product, proof, sizes, and a path to dealership live in one scroll."
+							},
+							{
+								"value": "4 sizes",
+								"body": "250ml through 2L are visible without opening another screen."
+							},
+							{
+								"value": "7 steps",
+								"body": "The purification process is part of the page, not a footnote in a PDF."
+							}
+						]
+					},
+					{
+						"kind": "points",
+						"title": "Reflections",
+						"intro": "A small marketing site still has to choose an order. This one taught me to be stricter about it.",
+						"items": [
+							{
+								"title": "Lead with the product",
+								"body": "The story lands after someone knows what is being sold. Reversing that order makes the page feel like an ad."
+							},
+							{
+								"title": "Proof beats adjectives",
+								"body": "A certification and a size do more than another sentence about purity."
+							},
+							{
+								"title": "Leave a real next step",
+								"body": "Dealership is a different reader. They still need a door, even when the page is written for someone buying water."
+							}
+						]
+					},
+					{
+						"kind": "closing",
+						"text": "Thanks for reading till the end!"
+					}
+				]
+			}
+		]
 	},
 	"notes": {
 		"title": "Notes",
@@ -86,15 +203,11 @@
 			{ "emoji": "✳️", "label": "hand-built" }
 		],
 		"social": [
-			{ "label": "X", "href": "https://x.com/urstruelysv" },
-			{
-				"label": "Instagram",
-				"href": "https://www.instagram.com/urstruelysv/"
-			},
-			{ "label": "GitHub", "href": "https://github.com/urstruelysv" },
+			{ "label": "X", "href": "https://x.com/iKrisnaw" },
+			{ "label": "GitHub", "href": "https://github.com/krisnaw" },
 			{
 				"label": "LinkedIn",
-				"href": "https://www.linkedin.com/in/sai-vamshi-375997194"
+				"href": "https://www.linkedin.com/in/krisnawijaya/?isSelfProfile=true"
 			},
 			{ "label": "Email", "href": "mailto:krisna.w2010@gmail.com" }
 		],

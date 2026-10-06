@@ -3,6 +3,13 @@
   "name": "krisna-website",
   "main": "@tanstack/react-start/server-entry",
   "compatibility_date": "2026-09-26",
+  "services": [
+    {
+      "binding": "BLOG",
+      "service": "krisna-blog",
+      "remote": true
+    }
+  ],
   "observability": {
     "enabled": true
   }
