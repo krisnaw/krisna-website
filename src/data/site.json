@@ -4,6 +4,7 @@
 			"label": "HOME",
 			"href": "/"
 		},
+		"showNav": false,
 		"nav": [
 			{
 				"label": "WORK",
@@ -19,55 +20,97 @@
 			},
 			{
 				"label": "CV",
-				"href": "https://saivamshi.aethoscompany.in/cv"
+				"href": "/cv"
 			}
 		]
 	},
 	"hero": {
 		"name": "Krisna Wijaya",
 		"avatar": {
-			"src": "/avatar.png",
+			"src": "/website_profile.jpg",
 			"alt": "Krisna Wijaya"
 		},
 		"paragraphs": [
 			[
 				{
-					"text": "Full-stack engineer with 6+ years of experience across freelance work, contract SaaS, and founding my own."
+					"text": "I'm a full-stack developer looking for a role on a Rails product, or on a TypeScript stack built with Next.js and TanStack. I want to own a feature from the interface through the API."
 				}
 			],
 			[
 				{
-					"text": "I ship Next.js products end to end, from the first sketch to the thing running in production: UI, APIs, AI integrations, and the systems underneath them."
+					"text": "Right now I work freelance, building and managing web apps. Six years in fast-growing startups taught me to care about the product itself: how people use it, and which feature is worth building next."
 				}
 			],
 			[
-				{ "text": "Currently building " },
-				{ "text": "Aethos Labs", "href": "https://www.aethoscompany.in/" },
-				{ "text": ", " },
-				{ "text": "Cirro", "href": "https://cirrowtr.in" },
-				{ "text": ", and other cool things." }
-			],
-			[
 				{
-					"text": "On the side I build small tools for the parts of my own workflow that annoy me. Those live on the "
-				},
-				{
-					"text": "projects",
-					"href": "/projects"
-				},
-				{ "text": " page." }
-			],
-			[
-				{
-					"text": "Based in Hyderabad, India, working remote with teams across time zones. When I'm not shipping, I'm usually writing about what broke and what I'd do differently."
+					"text": "I'm based in Bali, Indonesia. I'm looking for remote work, and I'm open to relocating for the right team."
 				}
-			],
-			[
-				{ "text": "Here is my " },
-				{ "text": "CV", "href": "https://saivamshi.aethoscompany.in/cv" },
-				{ "text": "." }
 			]
 		]
+	},
+	"contact": {
+		"lead": "Thanks for scrolling this far.",
+		"body": "Got something you want built? Tell me what it is and I'll tell you straight whether I'm the right person for it. Grab a slot or just ping me — whichever is less effort.",
+		"note": "One client project at a time · I reply within a day. Or ",
+		"email": {
+			"label": "email me",
+			"href": "mailto:krisna.w2010@gmail.com?subject=Project%20enquiry"
+		},
+		"call": {
+			"label": "Book a 15-min call",
+			"href": "mailto:krisna.w2010@gmail.com?subject=15-minute%20call"
+		}
+	},
+	"cv": {
+		"location": "Bali, Indonesia (open to remote and relocation)",
+		"summary": "I'm a full-stack developer looking for a role on a Rails product, or on a TypeScript stack built with Next.js and TanStack. I want to own a feature from the interface through the API. Right now I work freelance, building and managing web apps. Six years in fast-growing startups taught me to care about the product itself: how people use it, and which feature is worth building next.",
+		"experience": [
+			{
+				"role": "Freelance Web Developer",
+				"org": "Independent",
+				"dates": "2024 — Present",
+				"place": "Bali, remote",
+				"points": [
+					"Build and manage production web apps, from the interface through the API, and keep them running after launch.",
+					"Contract frontend for OtterDev (2026) and HaupCar (2025): product flows from Figma, REST APIs, and legacy React, including English and Thai.",
+					"Work with clients on what to build next, then own the feature through delivery."
+				]
+			},
+			{
+				"role": "Full-stack Developer",
+				"org": "C2 Media",
+				"dates": "2016 — 2024",
+				"place": "",
+				"points": [
+					"Led development of ContentGrow, a platform that connects freelance talent with content teams.",
+					"Built payments with Stripe, realtime chat with Pusher, and ran AWS across EC2, S3, SES, and load balancers.",
+					"Owned the product across the interface, the API, and the infrastructure underneath."
+				]
+			}
+		],
+		"skills": [
+			{
+				"label": "Frontend",
+				"items": "TypeScript, JavaScript, Next.js, TanStack, React, Vue, Tailwind CSS"
+			},
+			{
+				"label": "Backend",
+				"items": "Ruby on Rails, Go, Laravel, Node.js, REST APIs"
+			},
+			{
+				"label": "Cloud & product",
+				"items": "AWS (EC2, S3, SES), Stripe, Pusher"
+			}
+		],
+		"education": [
+			{
+				"title": "Boot.dev — Backend development",
+				"dates": "",
+				"place": "Certification",
+				"detail": "Practical programming, computer science fundamentals, and production-minded web services."
+			}
+		],
+		"availability": "Open to a full-time remote role, and open to relocating for the right team. Based in Bali, and used to working with teams across time zones."
 	},
 	"projects": {
 		"title": "Work",
@@ -211,7 +254,6 @@
 			},
 			{ "label": "Email", "href": "mailto:krisna.w2010@gmail.com" }
 		],
-		"updated": "Last updated October 2026",
-		"copyright": "© Krisna Wijaya."
+		"updated": "Last updated October 2026"
 	}
 }

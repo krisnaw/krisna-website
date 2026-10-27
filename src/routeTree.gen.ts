@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CvRouteImport } from './routes/cv'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as NotesIndexRouteImport } from './routes/notes.index'
@@ -20,6 +21,11 @@ import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CvRoute = CvRouteImport.update({
+  id: '/cv',
+  path: '/cv',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotesRoute = NotesRouteImport.update({
@@ -55,6 +61,7 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cv': typeof CvRoute
   '/notes': typeof NotesRouteWithChildren
   '/projects': typeof ProjectsRouteWithChildren
   '/notes/$slug': typeof NotesSlugRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cv': typeof CvRoute
   '/notes/$slug': typeof NotesSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/notes': typeof NotesIndexRoute
@@ -72,6 +80,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cv': typeof CvRoute
   '/notes': typeof NotesRouteWithChildren
   '/projects': typeof ProjectsRouteWithChildren
   '/notes/$slug': typeof NotesSlugRoute
@@ -83,6 +92,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/cv'
     | '/notes'
     | '/projects'
     | '/notes/$slug'
@@ -90,10 +100,11 @@ export interface FileRouteTypes {
     | '/notes/'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notes/$slug' | '/projects/$slug' | '/notes' | '/projects'
+  to: '/' | '/cv' | '/notes/$slug' | '/projects/$slug' | '/notes' | '/projects'
   id:
     | '__root__'
     | '/'
+    | '/cv'
     | '/notes'
     | '/projects'
     | '/notes/$slug'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CvRoute: typeof CvRoute
   NotesRoute: typeof NotesRouteWithChildren
   ProjectsRoute: typeof ProjectsRouteWithChildren
 }
@@ -115,6 +127,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cv': {
+      id: '/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notes': {
@@ -190,6 +209,7 @@ const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CvRoute: CvRoute,
   NotesRoute: NotesRouteWithChildren,
   ProjectsRoute: ProjectsRouteWithChildren,
 }

@@ -20,7 +20,7 @@ export const Route = createRootRoute({
 			{
 				name: "description",
 				content:
-					"Full-stack engineer with 5+ years of experience across freelance work, contract SaaS, and founding my own.",
+					"Full-stack developer in Bali, building with Rails, Next.js, and TanStack. Open to remote work and relocation.",
 			},
 		],
 		links: [

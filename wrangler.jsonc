@@ -2,6 +2,17 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "krisna-website",
   "main": "@tanstack/react-start/server-entry",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "krisnawijaya.com/*",
+      "zone_name": "krisnawijaya.com"
+    },
+    {
+      "pattern": "www.krisnawijaya.com/*",
+      "zone_name": "krisnawijaya.com"
+    }
+  ],
   "compatibility_date": "2026-09-26",
   "services": [
     {

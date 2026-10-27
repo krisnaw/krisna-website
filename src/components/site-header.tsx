@@ -1,3 +1,4 @@
+import { useRouterState } from "@tanstack/react-router";
 import site from "../data/site.json" with { type: "json" };
 import { HoverLink } from "./dotted-link";
 
@@ -8,8 +9,17 @@ function toggleTheme() {
 	localStorage.setItem("theme", next);
 }
 
+function isCurrent(href: string, pathname: string) {
+	if (href.startsWith("http")) return false;
+	if (href === "/") return pathname === "/";
+	return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function SiteHeader() {
-	const { brand, nav } = site.header;
+	const { brand, nav, showNav } = site.header;
+	const pathname = useRouterState({
+		select: (state) => state.location.pathname,
+	});
 
 	return (
 		<header className="site-header">
@@ -19,11 +29,17 @@ export function SiteHeader() {
 						{brand.label}
 					</a>
 					<div className="nav-links">
-						{nav.map((item) => (
-							<HoverLink key={item.label} className="nav-link" href={item.href}>
-								{item.label}
-							</HoverLink>
-						))}
+						{showNav &&
+							nav.map((item) => (
+								<HoverLink
+									key={item.label}
+									className="nav-link"
+									href={item.href}
+									current={isCurrent(item.href, pathname)}
+								>
+									{item.label}
+								</HoverLink>
+							))}
 						<button
 							className="nav-theme"
 							type="button"

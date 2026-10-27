@@ -4,10 +4,12 @@ export function HoverLink({
 	href,
 	className,
 	children,
+	current = false,
 }: {
 	href: string;
 	className: string;
 	children: string;
+	current?: boolean;
 }) {
 	const rawId = useId();
 	const id = `dots-${rawId.replace(/:/g, "")}`;
@@ -17,6 +19,7 @@ export function HoverLink({
 		<a
 			className={className}
 			href={href}
+			{...(current ? { "aria-current": "page" as const } : {})}
 			{...(external
 				? { target: "_blank", rel: "noopener noreferrer" }
 				: { rel: "noopener noreferrer" })}
