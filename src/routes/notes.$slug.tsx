@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { NoteBody } from "../components/note-body";
+import { NoteToc, noteHeadings } from "../components/note-toc";
 import site from "../data/site.json" with { type: "json" };
 import { getNote } from "../server/note";
 
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/notes/$slug")({
 
 function NotePage() {
 	const { note, error } = Route.useLoaderData();
+	const headings = note ? noteHeadings(note.blocks) : [];
 
 	return (
 		<main className="page">
@@ -53,7 +55,13 @@ function NotePage() {
 							{dateFormat.format(new Date(note.publishedAt))}
 						</time>
 					</header>
-					<NoteBody blocks={note.blocks} />
+					<NoteToc headings={headings} />
+					<NoteBody
+						blocks={note.blocks}
+						headingIds={
+							new Map(headings.map((heading) => [heading.key, heading.id]))
+						}
+					/>
 				</article>
 			)}
 		</main>

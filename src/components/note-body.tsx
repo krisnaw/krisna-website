@@ -5,24 +5,33 @@ import type {
 	NoteTextBlock,
 } from "../server/portable-text";
 
-export function NoteBody({ blocks }: { blocks: NoteBlock[] }) {
-	return <div className="note-body">{renderBlocks(blocks)}</div>;
+export function NoteBody({
+	blocks,
+	headingIds,
+}: {
+	blocks: NoteBlock[];
+	headingIds: Map<string, string>;
+}) {
+	return <div className="note-body">{renderBlocks(blocks, headingIds)}</div>;
 }
 
-function renderBlocks(blocks: NoteBlock[]): ReactNode[] {
+function renderBlocks(
+	blocks: NoteBlock[],
+	headingIds: Map<string, string>,
+): ReactNode[] {
 	const nodes: ReactNode[] = [];
 	let index = 0;
 
 	while (index < blocks.length) {
 		const block = blocks[index];
 		if (block.kind === "text" && block.listItem) {
-			const [node, next] = takeList(blocks, index, block.level);
+			const [node, next] = takeList(blocks, index, block.level, headingIds);
 			nodes.push(node);
 			index = next;
 			continue;
 		}
 
-		nodes.push(renderBlock(block));
+		nodes.push(renderBlock(block, headingIds.get(block.key)));
 		index += 1;
 	}
 
@@ -33,6 +42,7 @@ function takeList(
 	blocks: NoteBlock[],
 	start: number,
 	level: number,
+	headingIds: Map<string, string>,
 ): [ReactNode, number] {
 	const first = blocks[start];
 	if (first.kind !== "text" || !first.listItem) {
@@ -58,7 +68,7 @@ function takeList(
 			const nested = blocks[index];
 			if (nested.kind !== "text" || !nested.listItem || nested.level <= level)
 				break;
-			const [child, next] = takeList(blocks, index, nested.level);
+			const [child, next] = takeList(blocks, index, nested.level, headingIds);
 			children.push(child);
 			index = next;
 		}
@@ -75,7 +85,7 @@ function takeList(
 	return [<List key={`${listItem}-${first.key}`}>{items}</List>, index];
 }
 
-function renderBlock(block: NoteBlock) {
+function renderBlock(block: NoteBlock, id?: string) {
 	if (block.kind === "image") {
 		return (
 			<figure key={block.key}>
@@ -93,15 +103,30 @@ function renderBlock(block: NoteBlock) {
 		);
 	}
 
-	return renderText(block);
+	return renderText(block, id);
 }
 
-function renderText(block: NoteTextBlock) {
+function renderText(block: NoteTextBlock, id?: string) {
 	const content = <Spans spans={block.spans} />;
 
-	if (block.style === "h2") return <h2 key={block.key}>{content}</h2>;
-	if (block.style === "h3") return <h3 key={block.key}>{content}</h3>;
-	if (block.style === "h4") return <h4 key={block.key}>{content}</h4>;
+	if (block.style === "h2")
+		return (
+			<h2 id={id} key={block.key}>
+				{content}
+			</h2>
+		);
+	if (block.style === "h3")
+		return (
+			<h3 id={id} key={block.key}>
+				{content}
+			</h3>
+		);
+	if (block.style === "h4")
+		return (
+			<h4 id={id} key={block.key}>
+				{content}
+			</h4>
+		);
 	if (block.style === "blockquote")
 		return <blockquote key={block.key}>{content}</blockquote>;
 	return <p key={block.key}>{content}</p>;
