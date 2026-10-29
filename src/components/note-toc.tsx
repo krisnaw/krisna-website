@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { NoteBlock } from "../server/portable-text";
 
 export type NoteHeading = {
@@ -43,6 +43,8 @@ export function noteHeadings(blocks: NoteBlock[]): NoteHeading[] {
 
 export function NoteToc({ headings }: { headings: NoteHeading[] }) {
 	const [activeId, setActiveId] = useState(headings[0]?.id ?? "");
+	const scrollingTo = useRef<string | null>(null);
+	const frame = useRef(0);
 	const items = tocTree(headings);
 	const activeSection = sectionId(headings, activeId);
 
@@ -53,6 +55,10 @@ export function NoteToc({ headings }: { headings: NoteHeading[] }) {
 		if (nodes.length === 0) return;
 
 		const markCurrent = () => {
+			if (scrollingTo.current) {
+				setActiveId(scrollingTo.current);
+				return;
+			}
 			const line = Math.min(160, window.innerHeight * 0.28);
 			let current = nodes[0].id;
 			for (const node of nodes) {
@@ -76,6 +82,45 @@ export function NoteToc({ headings }: { headings: NoteHeading[] }) {
 		return () => window.removeEventListener("scroll", markCurrent);
 	}, [headings]);
 
+	const scrollToHeading = (id: string) => {
+		const target = document.getElementById(id);
+		if (!target) return;
+		const reduce = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+		const destination = Math.max(
+			0,
+			target.getBoundingClientRect().top + window.scrollY - 24,
+		);
+		cancelAnimationFrame(frame.current);
+		scrollingTo.current = id;
+		setActiveId(id);
+		history.pushState(null, "", `#${id}`);
+
+		if (reduce || Math.abs(destination - window.scrollY) < 8) {
+			window.scrollTo(0, destination);
+			scrollingTo.current = null;
+			return;
+		}
+
+		const start = window.scrollY;
+		const change = destination - start;
+		const duration = 650;
+		const started = performance.now();
+		const step = (now: number) => {
+			if (scrollingTo.current !== id) return;
+			const progress = Math.min(1, (now - started) / duration);
+			const eased =
+				progress < 0.5
+					? 2 * progress * progress
+					: 1 - (-2 * progress + 2) ** 2 / 2;
+			window.scrollTo(0, start + change * eased);
+			if (progress < 1) frame.current = requestAnimationFrame(step);
+			else scrollingTo.current = null;
+		};
+		frame.current = requestAnimationFrame(step);
+	};
+
 	if (headings.length < 2) return null;
 
 	return (
@@ -89,7 +134,7 @@ export function NoteToc({ headings }: { headings: NoteHeading[] }) {
 				))}
 			</div>
 			<nav aria-label="Table of contents">
-				<TocList items={items} activeId={activeId} onSelect={setActiveId} />
+				<TocList items={items} activeId={activeId} onSelect={scrollToHeading} />
 			</nav>
 		</div>
 	);
@@ -113,11 +158,7 @@ function TocList({
 						data-level={item.level}
 						aria-current={item.id === activeId ? "location" : undefined}
 						onClick={(event) => {
-							const target = document.getElementById(item.id);
-							if (!target) return;
 							event.preventDefault();
-							target.scrollIntoView({ block: "start" });
-							history.pushState(null, "", `#${item.id}`);
 							onSelect(item.id);
 						}}
 					>
