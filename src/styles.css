@@ -85,7 +85,7 @@ body {
 	padding: 0.75rem 0;
 	border-bottom: 1px solid color-mix(in oklab, var(--ink) 8%, var(--paper));
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 600;
 	letter-spacing: -0.00563rem;
 	line-height: 1.25rem;
@@ -108,7 +108,7 @@ body {
 .note-status {
 	margin: 0;
 	color: var(--neutral-500);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 }
@@ -226,9 +226,9 @@ body {
 	padding: 6px 8px;
 	border-radius: 4px;
 	color: var(--ink);
-	font-size: 14px;
+	font-size: 1rem;
 	font-weight: 400;
-	line-height: 21px;
+	line-height: 1.5rem;
 	letter-spacing: -0.011em;
 	text-decoration: none;
 }
@@ -267,7 +267,7 @@ body {
 	flex-direction: column;
 	gap: 0.75rem;
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 	letter-spacing: -0.025em;
@@ -302,7 +302,7 @@ body {
 }
 
 .note-body h4 {
-	font-size: 0.875rem;
+	font-size: 1rem;
 	line-height: 1.5rem;
 }
 
@@ -377,7 +377,7 @@ body {
 .page-intro p {
 	margin: 0;
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 	letter-spacing: -0.025em;
@@ -435,7 +435,7 @@ body {
 .cv-availability {
 	margin: 0;
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 	letter-spacing: -0.025em;
@@ -482,7 +482,7 @@ body {
 .cv-school-head h3 {
 	margin: 0;
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 700;
 	line-height: 1.35rem;
 }
@@ -521,7 +521,7 @@ body {
 	position: relative;
 	padding-left: 1rem;
 	color: var(--copy-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 	letter-spacing: -0.02em;
@@ -555,7 +555,7 @@ body {
 .cv-skill dt {
 	margin: 0;
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 700;
 	line-height: 1.35rem;
 }
@@ -563,7 +563,7 @@ body {
 .cv-skill dd {
 	margin: 0;
 	color: var(--copy-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 }
@@ -653,7 +653,7 @@ body {
 .hero-copy p {
 	margin: 0;
 	color: var(--copy-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 	letter-spacing: -0.025em;
@@ -745,7 +745,7 @@ body {
 .contact-card-copy p {
 	margin: 0;
 	color: var(--copy-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 }
@@ -766,7 +766,7 @@ body {
 	border: 2px dotted var(--neutral-300);
 	border-radius: 999px;
 	color: var(--body-color);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.25rem;
 	text-decoration: none;
@@ -922,7 +922,7 @@ body {
 .brand-mark {
 	color: var(--body-color);
 	font-family: var(--font-mono);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	letter-spacing: 0.025em;
 	text-decoration: none;
@@ -1230,7 +1230,7 @@ html[data-theme="dark"] .nav-theme .theme-sun {
 		radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--brand) 18%, var(--paper)), transparent 42%),
 		color-mix(in oklab, var(--ink) 5%, var(--paper));
 	color: var(--neutral-500);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -1239,7 +1239,7 @@ html[data-theme="dark"] .nav-theme .theme-sun {
 .case-figure figcaption {
 	margin: 1rem 0 0;
 	color: var(--neutral-500);
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 300;
 	text-align: center;
 }
