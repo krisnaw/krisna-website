@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="favicon" x1="128" y1="0" x2="128" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFE7A8" />
+      <stop offset="18%" stop-color="#FFD080" />
+      <stop offset="40%" stop-color="#FFAA62" />
+      <stop offset="62%" stop-color="#F5836A" />
+      <stop offset="80%" stop-color="#E86A78" />
+      <stop offset="100%" stop-color="#D4526C" />
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="128" fill="url(#favicon)" />
+</svg>

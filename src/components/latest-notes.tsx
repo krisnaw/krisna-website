@@ -32,7 +32,12 @@ export function LatestNotes({
 						to="/notes/$slug"
 						params={{ slug: note.slug }}
 					>
-						<span>{note.title}</span>
+						<span className="note-row-copy">
+							<span className="note-row-title">{note.title}</span>
+							{note.excerpt ? (
+								<span className="note-row-excerpt">{note.excerpt}</span>
+							) : null}
+						</span>
 						<time dateTime={note.publishedAt}>
 							{dateFormat.format(new Date(note.publishedAt))}
 						</time>

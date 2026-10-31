@@ -129,10 +129,10 @@ body {
 
 .note-row {
 	display: flex;
-	align-items: baseline;
+	align-items: flex-start;
 	justify-content: space-between;
 	gap: 1.5rem;
-	padding: 0.75rem 0;
+	padding: 0.9rem 0;
 	border-bottom: 1px solid color-mix(in oklab, var(--ink) 8%, var(--paper));
 	color: var(--body-color);
 	font-size: 1rem;
@@ -142,7 +142,24 @@ body {
 	text-decoration: none;
 }
 
-.note-row:hover {
+.note-row-copy {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	min-width: 0;
+}
+
+.note-row-excerpt {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	color: var(--copy-color);
+	font-weight: 500;
+	line-height: 1.5rem;
+}
+
+.note-row:hover .note-row-title {
 	color: var(--brand);
 }
 

@@ -8,7 +8,7 @@ export function PageHeader({
 	return (
 		<div className="page-intro">
 			<h1>{title}</h1>
-			<p>{description}</p>
+			{description ? <p>{description}</p> : null}
 		</div>
 	);
 }

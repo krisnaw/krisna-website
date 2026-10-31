@@ -44,7 +44,6 @@ function Home() {
 						<hr className="hero-rule" />
 						<div className="home-notes-intro">
 							<h2 id="latest-notes">Latest notes</h2>
-							<p>{site.notes.description}</p>
 						</div>
 						<LatestNotes notes={notes} error={error} />
 					</section>
