@@ -1,0 +1,56 @@
+{
+	"items": [
+		{
+			"slug": "cirro",
+			"name": "Cirro",
+			"title": "A site for water that feels as considered as the product",
+			"site": {
+				"label": "View website",
+				"href": "https://www.cirrowtr.in"
+			},
+			"tags": ["Marketing", "Full-stack", "India"],
+			"time": "2026",
+			"team": "Solo",
+			"sections": [
+				{
+					"label": "Challenge",
+					"body": "Cirro sells packaged drinking water in India. The product already had a point of view — a 7-step purification process, sizes from 250ml to 2L, and certifications people can check. The site did not. A first visit needed to answer one question: what makes this water different, and where do I get it?"
+				},
+				{
+					"label": "How we worked",
+					"body": "I designed and shipped the marketing site end to end. One page, one argument: lead with the product, put proof next, then sizes and a dealer path. Built as a normal site that has to survive on a phone in one hand — not a deck."
+				},
+				{
+					"label": "Outcome",
+					"body": "Product, proof, sizes, and a path to dealership live in one scroll. Certifications and the purification process sit ahead of the brand story. Four sizes are visible without opening another screen."
+				}
+			],
+			"quote": {
+				"text": "Tell me what makes this water different before you ask me to buy it.",
+				"highlight": "what makes this water different"
+			},
+			"media": [
+				{
+					"src": "/work/cirro/homepage.png",
+					"alt": "Cirro homepage",
+					"caption": "The shipped homepage"
+				},
+				{
+					"src": "/work/cirro/hero.png",
+					"alt": "Cirro product hero",
+					"caption": "Product first, before the story"
+				},
+				{
+					"src": "/work/cirro/giveback.png",
+					"alt": "Cirro give-back story",
+					"caption": "Give-back after the product is clear"
+				},
+				{
+					"src": "/work/cirro/cloud.png",
+					"alt": "Cirro atmosphere",
+					"caption": "Atmosphere that supports the brand"
+				}
+			]
+		}
+	]
+}
