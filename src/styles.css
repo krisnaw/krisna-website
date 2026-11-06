@@ -67,6 +67,12 @@
 	--font-display: "Geist Serif", "Times New Roman", Times, serif;
 	--font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
 		Consolas, "Liberation Mono", "Courier New", monospace;
+	--reading-weight: 450;
+	--reading-leading: 1.65;
+	--reading-tracking: -0.011em;
+	--display-size: 2.5rem;
+	--display-tracking: -0.03em;
+	--display-leading: 1.08;
 	color-scheme: light;
 }
 
@@ -167,9 +173,9 @@ body {
 	flex-shrink: 0;
 	color: var(--neutral-400);
 	font-family: var(--font-mono);
-	font-size: 0.6875rem;
-	font-weight: 460;
-	letter-spacing: 0;
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
 }
 
 .note-status {
@@ -208,18 +214,19 @@ body {
 	margin: 0;
 	color: var(--body-color);
 	font-family: var(--font-display);
-	font-size: 2.25rem;
+	font-size: var(--display-size);
 	font-weight: 400;
 	font-synthesis: none;
-	letter-spacing: -0.02em;
-	line-height: 1.15;
+	letter-spacing: var(--display-tracking);
+	line-height: var(--display-leading);
 }
 
 .note-article time {
 	color: var(--meta);
 	font-family: var(--font-mono);
-	font-size: 0.6875rem;
-	font-weight: 460;
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
 }
 
 .note-toc {
@@ -337,9 +344,9 @@ body {
 	gap: 0.75rem;
 	color: var(--body-color);
 	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.5rem;
-	letter-spacing: -0.025em;
+	font-weight: var(--reading-weight);
+	line-height: var(--reading-leading);
+	letter-spacing: var(--reading-tracking);
 }
 
 .note-body h2,
@@ -356,13 +363,16 @@ body {
 .note-body h3,
 .note-body h4 {
 	margin-top: 0.75rem;
-	font-weight: 700;
-	letter-spacing: -0.02em;
+	font-weight: 600;
+	letter-spacing: -0.015em;
 }
 
 .note-body h2 {
-	font-size: 1.25rem;
-	line-height: 1.75rem;
+	font-family: var(--font-display);
+	font-size: 1.625rem;
+	font-weight: 400;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
 }
 
 .note-body h3 {
@@ -425,8 +435,8 @@ body {
 	margin-top: 0.5rem;
 	color: var(--meta);
 	font-family: var(--font-mono);
-	font-size: 0.6875rem;
-	letter-spacing: 0;
+	font-size: 0.75rem;
+	letter-spacing: 0.02em;
 }
 
 .page-intro {
@@ -439,21 +449,21 @@ body {
 	margin: 0;
 	color: var(--body-color);
 	font-family: var(--font-display);
-	font-size: 2.25rem;
+	font-size: var(--display-size);
 	font-weight: 400;
 	font-synthesis: none;
-	letter-spacing: -0.02em;
-	line-height: 1.15;
+	letter-spacing: var(--display-tracking);
+	line-height: var(--display-leading);
 }
 
 .page-intro p {
 	margin: 0;
 	color: var(--body-color);
 	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.5rem;
-	letter-spacing: -0.025em;
-	text-align: justify;
+	font-weight: var(--reading-weight);
+	line-height: var(--reading-leading);
+	letter-spacing: var(--reading-tracking);
+	text-align: left;
 	text-wrap: pretty;
 }
 
@@ -491,11 +501,11 @@ body {
 	margin: 0;
 	color: var(--body-color);
 	font-family: var(--font-display);
-	font-size: 2.25rem;
+	font-size: var(--display-size);
 	font-weight: 400;
 	font-synthesis: none;
-	letter-spacing: -0.02em;
-	line-height: 1.15;
+	letter-spacing: var(--display-tracking);
+	line-height: var(--display-leading);
 }
 
 .cv-location {
@@ -511,10 +521,10 @@ body {
 	margin: 0;
 	color: var(--body-color);
 	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.5rem;
-	letter-spacing: -0.025em;
-	text-align: justify;
+	font-weight: var(--reading-weight);
+	line-height: var(--reading-leading);
+	letter-spacing: var(--reading-tracking);
+	text-align: left;
 	text-wrap: pretty;
 }
 
@@ -532,7 +542,7 @@ body {
 .cv-label {
 	margin: 0;
 	color: var(--neutral-400);
-	font-size: 0.6875rem;
+	font-size: 0.75rem;
 	font-weight: 500;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -571,8 +581,8 @@ body {
 	flex-shrink: 0;
 	color: var(--neutral-400);
 	font-family: var(--font-mono);
-	font-size: 0.6875rem;
-	letter-spacing: 0;
+	font-size: 0.75rem;
+	letter-spacing: 0.02em;
 }
 
 .cv-place,
@@ -714,11 +724,11 @@ body {
 	margin: 0;
 	color: var(--body-color);
 	font-family: var(--font-display);
-	font-size: 2rem;
+	font-size: var(--display-size);
 	font-weight: 400;
 	font-synthesis: none;
-	letter-spacing: -0.02em;
-	line-height: 1.1;
+	letter-spacing: var(--display-tracking);
+	line-height: var(--display-leading);
 }
 
 .hero-copy {
@@ -732,9 +742,9 @@ body {
 	margin: 0;
 	color: var(--body-color);
 	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.5rem;
-	letter-spacing: -0.025em;
+	font-weight: var(--reading-weight);
+	line-height: var(--reading-leading);
+	letter-spacing: var(--reading-tracking);
 	text-align: left;
 	text-wrap: pretty;
 }
@@ -768,8 +778,9 @@ body {
 	margin: 0;
 	color: var(--neutral-400);
 	font-family: var(--font-mono);
-	font-size: 0.6875rem;
+	font-size: 0.75rem;
 	font-weight: 500;
+	letter-spacing: 0.04em;
 	line-height: 1.25rem;
 }
 
@@ -824,8 +835,9 @@ body {
 	margin: 0;
 	color: var(--copy-color);
 	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1.5rem;
+	font-weight: var(--reading-weight);
+	letter-spacing: var(--reading-tracking);
+	line-height: var(--reading-leading);
 }
 
 .contact-card-actions {
@@ -1238,8 +1250,8 @@ html.theme-switching ::after {
 	font-size: 2.75rem;
 	font-weight: 400;
 	font-synthesis: none;
-	letter-spacing: -0.02em;
-	line-height: 1.1;
+	letter-spacing: var(--display-tracking);
+	line-height: 1.08;
 }
 
 .case-meta {
@@ -1286,9 +1298,9 @@ html.theme-switching ::after {
 	margin: 0;
 	color: var(--body-color);
 	font-size: 1rem;
-	font-weight: 300;
-	letter-spacing: -0.003px;
-	line-height: 1.75rem;
+	font-weight: var(--reading-weight);
+	letter-spacing: var(--reading-tracking);
+	line-height: var(--reading-leading);
 }
 
 .case-intro a {
@@ -1351,10 +1363,10 @@ html.theme-switching ::after {
 	margin: 0 0 0.25rem;
 	color: var(--body-color);
 	font-family: var(--font-display);
-	font-size: 2.1875rem;
+	font-size: 2rem;
 	font-weight: 400;
 	font-synthesis: none;
-	letter-spacing: -0.02em;
+	letter-spacing: var(--display-tracking);
 	line-height: 1.15;
 }
 
@@ -1513,11 +1525,12 @@ html.theme-switching ::after {
 .project-sheet-head h1 {
 	margin: 0;
 	color: var(--body-color);
-	font-family: var(--font-body);
-	font-size: 1.25rem;
-	font-weight: 500;
-	letter-spacing: -0.02em;
-	line-height: 1.4;
+	font-family: var(--font-display);
+	font-size: 1.75rem;
+	font-weight: 400;
+	font-synthesis: none;
+	letter-spacing: var(--display-tracking);
+	line-height: 1.15;
 }
 
 .project-sheet-site {
@@ -1613,9 +1626,10 @@ html.theme-switching ::after {
 .project-sheet-quote {
 	margin: 0;
 	color: var(--neutral-600);
-	font-size: 0.875rem;
-	font-weight: 500;
-	line-height: 1.35rem;
+	font-size: 1rem;
+	font-weight: var(--reading-weight);
+	letter-spacing: var(--reading-tracking);
+	line-height: var(--reading-leading);
 }
 
 .project-sheet-quote {
