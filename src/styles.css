@@ -1094,6 +1094,22 @@ html[data-theme="dark"] .nav-theme .theme-sun {
 	display: block;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+	mix-blend-mode: normal;
+	animation: none;
+}
+
+::view-transition-new(root) {
+	will-change: clip-path;
+}
+
+html.theme-switching *,
+html.theme-switching ::before,
+html.theme-switching ::after {
+	transition: none !important;
+}
+
 .site-footer {
 	margin-top: 6rem;
 }
