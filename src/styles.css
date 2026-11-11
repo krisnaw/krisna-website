@@ -46,20 +46,44 @@
 }
 
 :root {
-	--paper: #fff;
-	--ink: #111;
+	--paper-light: #fff;
+	--paper-dark: #111;
+	--ink-light: #111;
+	--ink-dark: #f4f4f4;
+	--copy-light: #737373;
+	--copy-dark: #a3a3a3;
+	--brand-light: #2d5ba4;
+	--brand-dark: #8fb4ef;
+	--dot-light: #a3a3a3;
+	--dot-dark: #737373;
+	--neutral-300-light: #d4d4d4;
+	--neutral-300-dark: #404040;
+	--neutral-400-light: #a3a3a3;
+	--neutral-400-dark: #8a8a8a;
+	--neutral-500-light: #737373;
+	--neutral-500-dark: #a3a3a3;
+	--neutral-600-light: #525252;
+	--neutral-600-dark: #d4d4d4;
+	--neutral-900-light: #171717;
+	--neutral-900-dark: #f5f5f5;
+	--meta-light: #525252;
+	--meta-dark: #a3a3a3;
+	--mark-light: #737373;
+	--mark-dark: #8a8a8a;
+	--paper: var(--paper-light);
+	--ink: var(--ink-light);
+	--copy-color: var(--copy-light);
+	--brand: var(--brand-light);
+	--dot: var(--dot-light);
+	--neutral-300: var(--neutral-300-light);
+	--neutral-400: var(--neutral-400-light);
+	--neutral-500: var(--neutral-500-light);
+	--neutral-600: var(--neutral-600-light);
+	--neutral-900: var(--neutral-900-light);
+	--meta: var(--meta-light);
+	--mark: var(--mark-light);
 	--body-bg: var(--paper);
 	--body-color: var(--ink);
-	--copy-color: #737373;
-	--brand: #2d5ba4;
-	--dot: #a3a3a3;
-	--neutral-300: #d4d4d4;
-	--neutral-400: #a3a3a3;
-	--neutral-500: #737373;
-	--neutral-600: #525252;
-	--neutral-900: #171717;
-	--meta: #525252;
-	--mark: #737373;
 	--border: color-mix(in oklab, var(--ink) 12%, var(--paper));
 	--secondary: color-mix(in oklab, var(--ink) 6%, var(--paper));
 	--font-body: "Geist Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -73,23 +97,73 @@
 	--display-size: 2.5rem;
 	--display-tracking: -0.03em;
 	--display-leading: 1.08;
-	color-scheme: light;
+	color-scheme: light dark;
 }
 
-html[data-theme="dark"] {
-	--paper: #111;
-	--ink: #f4f4f4;
-	--copy-color: #a3a3a3;
-	--brand: #8fb4ef;
-	--dot: #737373;
-	--neutral-300: #404040;
-	--neutral-400: #8a8a8a;
-	--neutral-500: #a3a3a3;
-	--neutral-600: #d4d4d4;
-	--neutral-900: #f5f5f5;
-	--meta: #a3a3a3;
-	--mark: #8a8a8a;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--paper: var(--paper-dark);
+		--ink: var(--ink-dark);
+		--copy-color: var(--copy-dark);
+		--brand: var(--brand-dark);
+		--dot: var(--dot-dark);
+		--neutral-300: var(--neutral-300-dark);
+		--neutral-400: var(--neutral-400-dark);
+		--neutral-500: var(--neutral-500-dark);
+		--neutral-600: var(--neutral-600-dark);
+		--neutral-900: var(--neutral-900-dark);
+		--meta: var(--meta-dark);
+		--mark: var(--mark-dark);
+	}
+}
+
+@supports (color: light-dark(white, black)) {
+	:root {
+		--paper: light-dark(var(--paper-light), var(--paper-dark));
+		--ink: light-dark(var(--ink-light), var(--ink-dark));
+		--copy-color: light-dark(var(--copy-light), var(--copy-dark));
+		--brand: light-dark(var(--brand-light), var(--brand-dark));
+		--dot: light-dark(var(--dot-light), var(--dot-dark));
+		--neutral-300: light-dark(var(--neutral-300-light), var(--neutral-300-dark));
+		--neutral-400: light-dark(var(--neutral-400-light), var(--neutral-400-dark));
+		--neutral-500: light-dark(var(--neutral-500-light), var(--neutral-500-dark));
+		--neutral-600: light-dark(var(--neutral-600-light), var(--neutral-600-dark));
+		--neutral-900: light-dark(var(--neutral-900-light), var(--neutral-900-dark));
+		--meta: light-dark(var(--meta-light), var(--meta-dark));
+		--mark: light-dark(var(--mark-light), var(--mark-dark));
+	}
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
 	color-scheme: dark;
+	--paper: var(--paper-dark);
+	--ink: var(--ink-dark);
+	--copy-color: var(--copy-dark);
+	--brand: var(--brand-dark);
+	--dot: var(--dot-dark);
+	--neutral-300: var(--neutral-300-dark);
+	--neutral-400: var(--neutral-400-dark);
+	--neutral-500: var(--neutral-500-dark);
+	--neutral-600: var(--neutral-600-dark);
+	--neutral-900: var(--neutral-900-dark);
+	--meta: var(--meta-dark);
+	--mark: var(--mark-dark);
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
+	color-scheme: light;
+	--paper: var(--paper-light);
+	--ink: var(--ink-light);
+	--copy-color: var(--copy-light);
+	--brand: var(--brand-light);
+	--dot: var(--dot-light);
+	--neutral-300: var(--neutral-300-light);
+	--neutral-400: var(--neutral-400-light);
+	--neutral-500: var(--neutral-500-light);
+	--neutral-600: var(--neutral-600-light);
+	--neutral-900: var(--neutral-900-light);
+	--meta: var(--meta-light);
+	--mark: var(--mark-light);
 }
 
 * {
@@ -1072,6 +1146,7 @@ body {
 }
 
 .nav-theme {
+	position: relative;
 	display: grid;
 	width: 2rem;
 	height: 2rem;
@@ -1094,16 +1169,45 @@ body {
 	height: 1rem;
 }
 
-.nav-theme .theme-sun {
+.theme-option {
+	display: grid;
+	place-items: center;
+}
+
+.theme-to-light {
 	display: none;
 }
 
-html[data-theme="dark"] .nav-theme .theme-moon {
+.theme-option-label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not(:has(> head > meta[name="color-scheme"][content="light"]))
+		.theme-to-dark {
+		display: none;
+	}
+
+	:root:not(:has(> head > meta[name="color-scheme"][content="light"]))
+		.theme-to-light {
+		display: grid;
+	}
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-to-dark {
 	display: none;
 }
 
-html[data-theme="dark"] .nav-theme .theme-sun {
-	display: block;
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-to-light {
+	display: grid;
 }
 
 ::view-transition-old(root),

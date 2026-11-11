@@ -4,24 +4,42 @@ import { useEffect } from "react";
 import site from "../data/site.json" with { type: "json" };
 import { HoverLink } from "./dotted-link";
 
-function themePressed() {
-	return document.documentElement.dataset.theme === "dark" ? "true" : "false";
+function colorSchemeMeta() {
+	return document.querySelector('meta[name="color-scheme"]');
 }
 
-function syncThemePressed(button: HTMLButtonElement | null) {
-	if (!button || typeof document === "undefined") return;
-	button.setAttribute("aria-pressed", themePressed());
+function renderedDark() {
+	const content = colorSchemeMeta()?.getAttribute("content");
+	if (content === "dark") return true;
+	if (content === "light") return false;
+	return matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
-function applyTheme(button: HTMLButtonElement, next: "light" | "dark") {
-	document.documentElement.dataset.theme = next;
-	localStorage.setItem("theme", next);
-	button.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
+function setScheme(content: "light" | "dark" | "light dark") {
+	const meta = colorSchemeMeta();
+	if (meta) meta.setAttribute("content", content);
+}
+
+function applyScheme(content: "light" | "dark" | "light dark") {
+	setScheme(content);
+	try {
+		if (content === "light dark") {
+			localStorage.removeItem("color-scheme");
+			localStorage.removeItem("theme");
+		} else {
+			localStorage.setItem("color-scheme", content);
+			localStorage.removeItem("theme");
+		}
+	} catch {
+		// The scheme still applies for this view when storage is blocked.
+	}
 }
 
 function toggleTheme(button: HTMLButtonElement) {
-	const next =
-		document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+	const nextDark = !renderedDark();
+	const systemDark = matchMedia("(prefers-color-scheme: dark)").matches;
+	const content =
+		nextDark === systemDark ? "light dark" : nextDark ? "dark" : "light";
 	const rect = button.getBoundingClientRect();
 	const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 	const root = document.documentElement;
@@ -31,7 +49,7 @@ function toggleTheme(button: HTMLButtonElement) {
 		typeof document.startViewTransition !== "function" ||
 		rect.width === 0
 	) {
-		applyTheme(button, next);
+		applyScheme(content);
 		return;
 	}
 
@@ -47,10 +65,10 @@ function toggleTheme(button: HTMLButtonElement) {
 	root.classList.add("theme-switching");
 	let transition: ViewTransition;
 	try {
-		transition = document.startViewTransition(() => applyTheme(button, next));
+		transition = document.startViewTransition(() => applyScheme(content));
 	} catch {
 		root.classList.remove("theme-switching");
-		applyTheme(button, next);
+		applyScheme(content);
 		return;
 	}
 
@@ -89,7 +107,25 @@ export function SiteHeader() {
 		select: (state) => state.location.pathname,
 	});
 
-	useEffect(() => bind(), []);
+	useEffect(() => {
+		bind();
+		function onStorage(event: StorageEvent) {
+			if (event.key === "color-scheme") {
+				setScheme(
+					event.newValue === "light" || event.newValue === "dark"
+						? event.newValue
+						: "light dark",
+				);
+			} else if (
+				event.key === "theme" &&
+				(event.newValue === "light" || event.newValue === "dark")
+			) {
+				setScheme(event.newValue);
+			}
+		}
+		window.addEventListener("storage", onStorage);
+		return () => window.removeEventListener("storage", onStorage);
+	}, []);
 
 	return (
 		<header className="site-header">
@@ -111,47 +147,51 @@ export function SiteHeader() {
 								</HoverLink>
 							))}
 						<button
-							ref={syncThemePressed}
 							className="nav-theme"
 							type="button"
-							aria-label="Toggle color theme"
 							data-cuelume-toggle="toggle"
 							onClick={(event) => toggleTheme(event.currentTarget)}
 						>
-							<svg
-								className="theme-moon"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								aria-hidden="true"
-							>
-								<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-							</svg>
-							<svg
-								className="theme-sun"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								aria-hidden="true"
-							>
-								<circle cx="12" cy="12" r="4" />
-								<path d="M12 2v2" />
-								<path d="M12 20v2" />
-								<path d="m4.93 4.93 1.41 1.41" />
-								<path d="m17.66 17.66 1.41 1.41" />
-								<path d="M2 12h2" />
-								<path d="M20 12h2" />
-								<path d="m6.34 17.66-1.41 1.41" />
-								<path d="m19.07 4.93-1.41 1.41" />
-							</svg>
+							<span className="theme-option theme-to-dark">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									aria-hidden="true"
+								>
+									<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+								</svg>
+								<span className="theme-option-label">Switch to dark theme</span>
+							</span>
+							<span className="theme-option theme-to-light">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									aria-hidden="true"
+								>
+									<circle cx="12" cy="12" r="4" />
+									<path d="M12 2v2" />
+									<path d="M12 20v2" />
+									<path d="m4.93 4.93 1.41 1.41" />
+									<path d="m17.66 17.66 1.41 1.41" />
+									<path d="M2 12h2" />
+									<path d="M20 12h2" />
+									<path d="m6.34 17.66-1.41 1.41" />
+									<path d="m19.07 4.93-1.41 1.41" />
+								</svg>
+								<span className="theme-option-label">
+									Switch to light theme
+								</span>
+							</span>
 						</button>
 					</div>
 				</nav>
